@@ -2,10 +2,13 @@
 \title{Entropy}
 \usepackage{macros}
 \renewcommand{\entropyof}[1]{\operatorname{Ent}\left(#1\right)}
+\newcommand{\entropyat}[2]{\operatorname{Ent}_{#1}\left(#2\right)}
 
 \begin{document}
 \maketitle
-\noindent\emph{Tools} Convexity, integration, Jensen inequality.
+\noindent\emph{Tools:} Convexity, integration, Jensen inequality, standard Gaussian density, Radon-Nikodim derivative.
+
+\bigskip
 
 \noindent 1. \emph{Definition}. Let $\mu$ be a \emph{probability measure} on
 $(X,\mathcal X)$. For each non-negative random variable $f \colon X$
@@ -65,6 +68,11 @@ so that
 \end{equation*}
 be the standard Gaussian density and consider the case $\mu(dx) =
 \gamma(x) dx$.
+
+\noindent 6. \emph{Divergence}. Consider the dependence of the entropy on $\mu$, that is, write
+\begin{equation*}
+    \entropyof f = \entropyat \mu f \ .
+\end{equation*}
 
 
 \end{document}
