@@ -1,6 +1,70 @@
 \documentclass[12pt,a4paper]{amsart}
 \title{Entropy}
 \usepackage{macros}
+\renewcommand{\entropyof}[1]{\operatorname{Ent}\left(#1\right)}
+
 \begin{document}
 \maketitle
+\noindent\emph{Tools} Convexity, integration, Jensen inequality.
+
+\noindent 1. \emph{Definition}. Let $\mu$ be a \emph{probability measure} on
+$(X,\mathcal X)$. For each non-negative random variable $f \colon X$
+define its entropy to be
+\begin{equation*}
+  \entropyof{f} = \expectat \mu {\Phi\circ f} - \Phi\left(\expectat
+    \mu f\right), \quad \text{where} \quad \Phi(y) = y \log y \ ,
+\end{equation*}
+if each term is well defined.
+
+\noindent 2. \emph{Well posedness}. The function $\Phi$ is continous
+on $\reals_\geq$ as $\lim_{y \downarrow 0} y \log y = 0$ and has
+derivatives given for $y > 0$ by
+\begin{equation*}
+  \Phi'(y) = 1 + \log y \ , \quad \Phi''(y)= 1/y \ .  
+\end{equation*}
+It is strictly convex with minimum value $-\euler^{-1}$ at
+$\euler^{-1}$. The negative part of $\Phi\circ f$ is bounded by
+$\euler^{-1}$, then $\expectat \mu {\Phi\circ f}$ is well defined,
+possibly $+\infty$. Jensen inequality gives
+\begin{equation*}
+  \Phi\left(\expectat \mu f\right) \leq \expectat \mu {\Phi\circ f} \ .
+\end{equation*}
+If the right-hand-side is finite, then the entropy is well
+defined. Otherwise, one has to require $\expectat \mu f < \infty$. The
+entropy is strictly positive, unless $f$ is constant.
+
+\noindent 3. \emph{Densities}. If $f$ is probability density,
+$\expectat \mu f = 1$, then $\Phi\left(\expectat \mu f\right) =
+\Phi(1) = 0$, so that
+\begin{equation*}
+  \entropyof f = \int f(x) \log f(x) \ \mu(dx) = \expectat f {\log f}
+  \ .
+\end{equation*}
+If $f$ is a strictly positive probability density, then
+\begin{equation*}
+  f(x) = \euler^{v(x)} \quad \text{with} \quad v(x) = \log f(x)
+\end{equation*}
+so that
+\begin{equation*}
+  \entropyof{\euler^{v}} = \int v(x) \euler^{v(x)} \ \mu(dx) \ .
+\end{equation*}
+
+\noindent 4. \emph{Homogeneity}. The entropy function is homogeneous. If $\alpha
+> 0$, then,
+\begin{multline*}
+  \entropyof{\alpha f} = \int \alpha f \log (\alpha f) \ d\mu - \left(\int
+    \alpha f \ d\mu\right) \logof{\int \alpha f  d\mu} = \\
+  \alpha \log \alpha \int f \ d\mu + \alpha \int f \log f \ d\mu - \\
+  \alpha \log \alpha \int f \ d\mu - \alpha \int f \ d\mu \logof{\int
+    f \ d\mu} = \\ \alpha \entropyof f \ .
+\end{multline*}
+
+\noindent 5. \emph{Gaussian probability measure}. Let
+\begin{equation*}
+  \gamma(x) = (2\pi)^{-1/2} \euler^{-x^2/2}
+\end{equation*}
+be the standard Gaussian density and consider the case $\mu(dx) =
+\gamma(x) dx$.
+
+
 \end{document}
